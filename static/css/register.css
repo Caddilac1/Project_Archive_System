@@ -244,3 +244,104 @@ label {
     font-size: 1.2rem;
   }
 }
+
+/* Base Styles (Desktop First Approach) */
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+  .container {
+    flex-direction: column; /* Stack columns on smaller screens */
+    padding: 15px;
+  }
+
+  .col1, .col2 {
+    flex: none;
+    width: 100%;
+  }
+
+  .header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .name {
+    margin-left: 0;
+    font-size: 16px;
+  }
+
+  .link-list {
+    margin-right: 0;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .title {
+    font-size: 26px;
+    text-align: center;
+  }
+
+  .info {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .name-email, .password, .form-control {
+    max-width: 100%;
+    font-size: 14px;
+  }
+
+  .button {
+    width: 100%;
+    height: 45px;
+    font-size: 14px;
+  }
+
+  .link-list {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .link-list a {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .header {
+    padding: 8px;
+  }
+
+  .name {
+    font-size: 14px;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+
+  .info {
+    font-size: 13px;
+  }
+
+  .name-email, .password, .form-control {
+    padding: 8px;
+    font-size: 13px;
+  }
+
+  .button {
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  .alert {
+    font-size: 12px;
+    width: 95%;
+    padding: 8px;
+  }
+
+  .alert-dismissible .close {
+    font-size: 1rem;
+  }
+}

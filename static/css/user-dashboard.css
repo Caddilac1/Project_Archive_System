@@ -510,3 +510,78 @@ nav ul li:hover a i {
   margin-right: 10px;
 }
 
+/* Existing styles remain unchanged */
+
+@media screen and (max-width: 1024px) {
+  .sidebar {
+      width: 20%;
+  }
+  .content {
+      width: 80%;
+      margin-left: 20%;
+  }
+  .box-pane {
+      flex-direction: column;
+  }
+  .col1, .col2 {
+      width: 100%;
+      margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .sidebar {
+      width: 25%;
+  }
+  .content {
+      width: 75%;
+      margin-left: 25%;
+  }
+  .lay1 div {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+  .search-box input {
+      width: 100px;
+  }
+  .box-pane {
+      flex-direction: column;
+  }
+  .more-info {
+      grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+  }
+  .content {
+      width: 100%;
+      margin-left: 0;
+  }
+  .lay1, .lay2 {
+      flex-direction: column;
+      align-items: center;
+  }
+  .lay1 > div:first-child, .lay2 > div:first-child {
+      margin-left: 0;
+  }
+  .search-box input {
+      width: 80px;
+  }
+  .more-info {
+      grid-template-columns: 1fr;
+  }
+  .box-pane {
+      flex-direction: column;
+  }
+  .profile-pic {
+      width: 60px;
+  }
+}

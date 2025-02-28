@@ -252,3 +252,115 @@ font-weight: bold;
   padding: 15px; 
   text-align: center; 
 }
+
+/* Tablet Screens (Max Width: 1024px) */
+@media screen and (max-width: 1024px) {
+  .header {
+    flex-direction: column;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .name {
+    width: auto;
+    margin-left: 0;
+    font-size: 16px;
+  }
+
+  .link-list {
+    margin-right: 0;
+    justify-content: center;
+  }
+
+  .login-section {
+    width: 90vw;
+    height: auto;
+    flex-direction: column;
+    border-radius: 20px;
+  }
+
+  .col1, .col2 {
+    border-radius: 20px;
+    padding: 20px;
+  }
+
+  .input-fields {
+    width: 90%;
+  }
+
+  .button-box {
+    width: 90%;
+  }
+}
+
+/* Mobile Screens (Max Width: 768px) */
+@media screen and (max-width: 768px) {
+  .title {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .intro {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .link-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .login-section {
+    width: 95vw;
+    flex-direction: column;
+  }
+
+  .input-fields {
+    width: 100%;
+  }
+
+  .button-box {
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* Small Mobile Screens (Max Width: 480px) */
+@media screen and (max-width: 480px) {
+  .header {
+    padding: 5px;
+  }
+
+  .name {
+    font-size: 14px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .link-list a {
+    font-size: 13px;
+    padding: 6px;
+  }
+
+  .login-section {
+    width: 98vw;
+  }
+
+  .input-fields {
+    font-size: 14px;
+    height: 40px;
+  }
+
+  .button-box {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .message, .alert {
+    font-size: 14px;
+    width: 90%;
+  }
+}

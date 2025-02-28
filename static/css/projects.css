@@ -202,3 +202,131 @@ body {
   margin: 0 auto;
 }
 
+/* Default Styles (Desktop First Approach) */
+
+/* Tablet Screens (Max Width: 1024px) */
+@media screen and (max-width: 1024px) {
+  .header {
+    flex-direction: column;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .name {
+    width: auto;
+    margin-left: 0;
+    font-size: 14px;
+  }
+
+  .link-list {
+    margin-right: 0;
+    justify-content: center;
+  }
+
+  .main {
+    width: 95vw;
+    padding: 10px;
+  }
+
+  .dropdown-search-container {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .search-field {
+    width: 100%;
+  }
+
+  .project-list {
+    grid-template-columns: 1fr 1fr; /* 2 columns for tablets */
+  }
+}
+
+/* Mobile Screens (Max Width: 768px) */
+@media screen and (max-width: 768px) {
+  .title {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .info {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .link-list {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .dropdown-button {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+
+  .dropdown-content {
+    width: 250px;
+  }
+
+  .project-list {
+    grid-template-columns: 1fr; /* 1 column for mobile */
+  }
+
+  .project-1 {
+    height: auto;
+    max-width: 100%;
+  }
+
+  .descriptive-message {
+    font-size: 14px;
+  }
+
+  .more-info {
+    font-size: 12px;
+    padding: 5px 8px;
+  }
+}
+
+/* Small Mobile Screens (Max Width: 480px) */
+@media screen and (max-width: 480px) {
+  .header {
+    padding: 5px;
+  }
+
+  .name {
+    font-size: 13px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .link-list a {
+    font-size: 13px;
+    padding: 6px;
+  }
+
+  .dropdown-content {
+    width: 200px;
+  }
+
+  .dropdown-button {
+    font-size: 12px;
+  }
+
+  .search-field {
+    font-size: 12px;
+    padding: 5px;
+  }
+
+  .project-list {
+    grid-template-columns: 1fr;
+    row-gap: 15px;
+  }
+
+  .more-info {
+    font-size: 12px;
+    padding: 5px;
+  }
+}
+
