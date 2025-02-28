@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="{% static 'css/contact-us.css' %}">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+
+<body>
+  <!-- Navbar Start -->
+  <div class="header">
+    <div style="
+    display: flex;
+    align-items: center;
+    margin-left: 20px;">
+      <img src="{% static 'images/badge.png' %}" width="60px" height="60px">
+      <p class="name">Ghana Communication Technology University (GCTU)</p>
+    </div>
+
+    <div class="link-list">
+      <a href="{% url 'home' %}" class="nav-link">Home</a>
+      <a href="{% url 'projects' %}" class="nav-link">Projects</a>        
+      <a href="{% url 'add_project' %}" class="nav-link" style="margin-right: 50px;">Add Project</a>    
+      <a href="{% url 'login' %}" class="nav-link">Login</a>    
+      <a href="{% url 'register' %}" class="nav-link"><span class="register">Register</span></a>
+    </div>
+  </div>  
+
+  <div class="content-area">
+    <div class="col1">
+      Contact Us
+    </div>
+
+    <div class="col2">
+      <div class="row1">
+        <div class="padding-support">
+          <form method="post" action="{% url 'contact' %}">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="contactName">Your Name</label>
+              <input type="text" class="form-control" name="name" id="contactName" value="{{request.user.full_name}}" placeholder="Enter your name" required>
+            </div>
+  
+            <div class="form-group">
+              <label for="contactEmail">Your Email</label>
+              <input type="email" class="form-control" name="email"  id="contactEmail" placeholder="Enter your email" required>
+            </div>
+  
+            <div class="form-group">
+              <label for="contactSubject">Subject</label>
+              <input type="text" class="form-control" name="subject" id="contactSubject" placeholder="Subject" required>
+            </div>
+  
+            <div class="form-group">
+              <label for="contactMessage">Message</label>
+              <textarea class="form-control" id="contactMessage" name="message" rows="5" placeholder="Your message" required></textarea>
+            </div>
+  
+            <div style="
+            display: flex;
+            justify-content: center;">
+              <button type="submit" class="submit-button">Send Message                
+              </button>
+            </div>
+          </form>
+        </div>        
+      </div>
+
+      <div class="row2">
+        <h2>Get in Touch</h2>
+        <p><i class="fas fa-map-marker-alt"></i>Main campus:</p>
+        <p>Digital Address : GA-167-2979
+          PMB 100 </p>
+        <p class="loc-det">Tesano , Accra – Ghana
+          Off J.A Kuffour Avenue , Adjacent the Police Training School , Tesano , Accra</p>
+        <p><i class="fas fa-map-marker-alt"></i>Business campus : Abeka road </p>
+        <p><i class="fas fa-phone-alt"></i> +233(0) 302 221446 / 302 21412 / 302 221479</p>
+        <p><i class="fas fa-envelope"></i> info@gctuprojectarchive.edu.gh</p>
+        <h2 class="mt-4">Follow Us</h2>
+        <a href="https://web.facebook.com/gctuonline" class="text-dark mr-3"><i class="fab fa-facebook-f fa-2x"></i></a>
+        <a href="https://x.com/gctuonline" class="text-dark mr-3"><i class="fab fa-twitter fa-2x"></i></a>
+        <a href="https://www.instagram.com/gctu_official/" class="text-dark"><i class="fab fa-instagram fa-2x"></i></a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

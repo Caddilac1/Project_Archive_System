@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <title>User dashboard</title>
+
+    <link rel="stylesheet" href="{% static 'css/user-dashboard.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+
+    </style>
+  </head>
+
+  <body>
+    <div class="sidebar">
+      <div class="badge">
+        <div style="margin: 0 0 0 5px;">
+          <img src="{% static 'images/badge.png' %}" width="80px;">
+        </div>
+
+        <div style="
+        margin-top: 18px;
+        font-family: montserrat;
+        font-weight: bold;
+        text-align: center;
+        width: 90px;
+        color: #1E1C4D;">
+          ARCHIVE SYSTEM
+        </div>        
+      </div>  
+        
+      <nav>
+        <ul>
+          <li>
+            <a href="{% url 'home' %}"><i class="bi bi-house"></i>Home</a>
+          </li>
+          <li>
+            <a href="{% url 'add_project' %}"><i class="bi bi-folder-plus"></i>Add project</a>
+          </li>
+          <li>
+            <a href="{% url 'projects' %}"><i class="bi bi-file-earmark-medical"></i>Projects</a>
+          </li>
+          <li>
+            <a href="{% url 'about' %}""><i class="bi bi-info-circle"></i>About Us</a>
+          </li>
+          <li>
+            <a href="{% url 'contact' %}"><i class="bi bi-telephone-outbound"></i>Contact Us</a>
+          </li>          
+        </ul>
+      </nav>  
+    </div>
+
+    <div class="content">
+      <div class="header">
+
+        <!-- first-header  -->
+        <div class="lay1">
+          <!-- div:first-child -->
+          <div>
+            <i class="bi bi-person"></i>{{request.user.full_name}}
+          </div>
+
+          <!-- div:nth-child(2) -->
+          <div>
+            <div class="search-box">
+              <div><a href=""><i class="bi bi-search"></i></a></div>
+              <div><input type="text" placeholder="Search"></div>
+            </div>
+            
+            <div class="notification-circle">
+              <div><i class="bi bi-bell-fill"></i></div>
+              <div></div>
+            </div>            
+          </div>
+        </div>
+
+        <!--  Second header  -->
+        <div class="lay2">
+          <div>User Dashboard</div>          
+           
+          <div>
+            <div class="signout">
+              <a href="{% url 'logout' %}">
+              <i class="bi bi-door-open-fill"></i>
+              </a>
+              <div class="tooltips">
+                Signout
+              </div>
+            </div>
+
+            <div class="edit-profile">
+              <i class="bi bi-pencil-fill"></i>
+              Edit Profile
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main content area-->
+
+      <div class="box-pane">
+        <div class="col1">
+          <div class="user-info">
+            <!-- user-info > div:first-child  -->
+            <div>
+              <div class="profile-pic-pane">
+                <img class="profile-pic" src="{% static 'images/channel-1.jpeg' %}">
+                <span class="name">{{request.user.full_name}}</span>
+                <span class="email">{{request.user.email}}</span>
+              </div>
+
+              <div class="downloads-uploads">
+                <div style="  
+                display: flex;
+                flex: 1;">
+                  <div style="
+                  flex: 1;
+                  text-align: center;
+                  border-right: solid 2px rgb(77, 132, 168, 0.11);">
+                    4 <p>Downloads</p>
+                  </div>
+                  <div style="
+                  flex: 1;
+                  text-align: center;">
+                    2 <p>Uploads</p>
+                  </div>
+                </div>
+
+                <div style="
+                flex: 1.5;
+                margin-top: 5px;
+                margin: 10px auto;">
+                  <button class="button_up">
+                    Send message
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!--  user-info > div:nth-child(2)  -->
+            <div class="more-info">
+              <div class="box">
+                <div>Programme</div>
+                <div>{{request.user.course}}</div>
+              </div>
+              <div class="box" >
+                <div>Faculty</div>
+                <div>{{request.user.faculty}}</div>
+              </div>
+              <div class="box">
+                <div>Department</div>
+                <div>{{request.user.department}}</div>
+              </div>
+              <div class="box">
+                <div>Class group</div>
+                <div>Group B</div>
+              </div>
+              <div class="box">
+                <div>Index number</div>
+                <div>{{request.user.username}}</div>
+              </div>
+              <div class="box">
+                <div>Telephone number</div>
+                <div>{{request.user.phone}}</div>
+              </div>
+              <div class="box">
+                <div>Level</div>
+                <div>200</div>
+              </div>
+              <div class="box">
+                <div>Rating</div>
+                <div>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-half"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="user-metrics">
+            <div class="switcher">
+              <input type="radio" id="feature1" name="content" value="option1" onclick="changeContent(this)" checked>
+              <label for="feature1">Ongoing Projects</label>
+      
+              <input type="radio" id="feature2" name="content" value="option2" onclick="changeContent(this)">
+              <label for="feature2">Completed Projects</label>
+      
+              <input type="radio" id="feature3" name="content" value="option3" onclick="changeContent(this)">
+              <label for="feature3">Project History</label>
+            </div>
+
+            <div id="contentBox" class="content-box">
+              <!-- Dynamic Content will be inserted here-->
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="col2">
+          <!-- Bio section  -->
+          <div class="bio">
+            <div>
+              <div>Bio</div>
+              <div style="color: rgb(21, 21, 182);">See all</div>
+            </div>
+
+            <div></div>
+
+            <div>
+              <div>
+                <span style="
+                  font-size: 12px;
+                  color: #131336; ">
+                  Social handles
+                </span>
+              </div>
+              <div class="social">
+                <div>
+                  <i class="bi bi-github"></i>
+                  <i class="bi bi-instagram"></i>
+                  <i class="bi bi-whatsapp"></i>
+                  <i class="bi bi-twitter-x"></i>
+                </div>
+                <div>22 Feb 24</div>
+              </div>
+            </div>
+          </div>
+
+
+          <!--Uploaded files section-->
+          <div class="file-downloads">
+            <div>
+              <div>Downloaded Projects</div>
+              <div><i class="bi bi-file-earmark-plus"></i> <span class="explore-more">Explore more</span></div>
+            </div>
+
+            <!-- file lists-->
+            <div class="file-lists">
+              <div class="rows">
+                <div><i class="bi bi-file-earmark-text"></i>Project Archive System </div>                
+                <div><i class="bi bi-trash3"></i></div>
+              </div>
+
+              <div class="rows">
+                <div><i class="bi bi-file-earmark-text"></i>School Clinic Management System</div>
+                <div><i class="bi bi-trash3"></i></div>
+              </div>
+
+              <div class="rows">
+                <div><i class="bi bi-file-earmark-text"></i>Library Management System</div>
+                <div><i class="bi bi-trash3"></i></div>
+              </div>
+
+              <div class="rows">
+                <div><i class="bi bi-file-earmark-text"></i>School Navigation System</div>
+                <div><i class="bi bi-trash3"></i></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function changeContent(radio) {
+          let contentBox = document.getElementById("contentBox");
+          let contentMap = {
+              "option1": `
+                  list of projects being worked on, <br>
+                  project titles, supervisors, team members and progress status<br>
+                  blah blah blah
+              `,  
+              "option2": `
+                   list of successfully completed projects,<br>
+                  project titles ,completion dates, grades, final reports,<br>
+                  links to download projects, blah blah blah
+              `,
+              "option3": `
+                  past projects worked on<br>
+                  timestamps of past submissions, modifications and approvals<br>
+                  access to feedback by supervisors and reviewers
+                  blah blah blah
+              `
+          };
+          
+          contentBox.innerHTML = contentMap[radio.value];
+      }
+
+      // Set initial content based on the pre-selected radio button
+      document.addEventListener("DOMContentLoaded", function () {
+          let defaultRadio = document.querySelector('input[name="content"]:checked');
+          if (defaultRadio) {
+              changeContent(defaultRadio);
+          }
+      });
+  </script>
+
+  </body>
+</html>

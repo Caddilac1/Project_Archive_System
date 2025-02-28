@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Registration Page - Project Archive System</title>
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    <!-- Navigation Pane -->
+    <div class="header">
+      <div style="display: flex; margin-left: 20px;">
+        <img src="{% static 'images/badge.png' %}" width="100px">
+        <p class="name">Ghana Communication Technology University (GCTU)</p>
+      </div>
+
+      <div class="link-list">
+        <a href="{% url 'home' %}" class="nav-link">Home</a>
+        <a href="{% url 'projects' %}" class="nav-link">Projects</a>
+        <a href="{% url 'add_project' %}" class="nav-link" style="margin-right: 50px;">Add Project</a>
+        <a href="{% url 'login' %}" class="nav-link"><span class="login">Login</span></a>
+      </div>
+    </div>
+
+    {% if messages %}
+      <div class="container mt-3">
+        {% for message in messages %}
+          {% if message.tags == 'success' %}
+            <!-- SweetAlert for success messages -->
+            <script>
+              Swal.fire({
+                icon: 'success',
+                title: '{{ message }}',
+                showConfirmButton: false,
+                timer: 3000 
+              });
+            </script>
+        {% elif message.tags == 'info' %}
+            <div class="alert alert-info text-center alert-dismissible fade show" role="alert">
+                <strong><i class="fas fa-info-circle"></i></strong> {{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% elif message.tags == 'error' %}
+            <div class="alert alert-danger text-center alert-dismissible fade show" role="alert">
+                <strong><i class="fas fa-times-circle"></i></strong> {{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>
+</div>
+{% endif %}
+
+
+    <!-- Registration Form -->
+<div class="container">
+  <div class="col1">
+    <div style="height: 90%; width: 80%;">
+      <p class="title">Start Sign-Up for free</p>
+      <p class="info">Create your free account to get started</p>
+
+      <form action="{% url 'register' %}" method="post">
+        {% csrf_token %}
+      <!-- Full name and email -->
+      <label for="registerName">Full name</label>
+      <input id="registerName" type="text" name="name" class="name-email" placeholder="Enter your full name" required>
+
+      <label for="registerEmail">Email address</label>
+      <input type="email" class="name-email" name="email" id="registerEmail" placeholder="Enter email" required>
+
+      <!-- User Type Selection -->
+      <div>
+        <label for="userType">I am a</label>
+        <label><input type="radio" id="student" name="userType" value="student" onclick="showStudentFields()"> Student</label>
+        <label><input type="radio" id="lecturer" name="userType" value="lecturer" onclick="hideStudentFields()"> Lecturer/Supervisor</label>
+        <label><input type="radio" id="researcher" name="userType" value="researcher" onclick="hideStudentFields()"> Researcher</label>
+      </div>
+      <br>
+
+      <!-- Student-Specific Fields -->
+      <div id="studentFields" style="display: none;">
+        <label for="indexNumber">Index Number</label>
+        <input type="text" class="name-email" name="indexNumber" id="indexNumber" placeholder="Enter index number">
+
+        <label for="facultySelect">Faculty</label>
+<select class="form-control" id="facultySelect" name="faculty">
+  <option value="" disabled selected>- Select your faculty -</option>
+  <option value="FoE">Faculty of Engineering (FoE)</option>
+  <option value="FoCIS">Faculty of Computing and Information Systems (FoCIS)</option>
+  <option value="GCTU_Business">GCTU Business School</option>
+</select>
+
+        <label for="departmentSelect">Department</label>
+        <select class="form-control" id="departmentSelect" name="department">
+          <option value="">- Select your department -</option>
+        </select>
+
+        <label for="courseSelect">Course</label>
+        <select class="form-control" id="courseSelect" name="course">
+          <option value="">- Select your course -</option>
+        </select>
+      </div>
+      <br>
+
+      <!-- Password Fields (Not Part of Student Fields) -->
+      <div class="password-sec">
+        <div>
+          <label for="registerPassword">Password</label>
+          <input type="password" class="password" id="registerPassword" name="password" placeholder="Password" required>
+        </div>
+
+        <div>
+          <label for="registerConfirmPassword">Confirm Password</label>
+          <input type="password" class="password" id="registerConfirmPassword" name="confirmpassword" placeholder="Confirm Password" required>
+        </div>
+      </div>
+
+      <!-- Register Button -->
+      <button type="submit" class="button">Register</button>
+    </div>
+  </div>
+  </form>
+
+  <div class="col2">
+    <img src="{% static 'images/registeration gra..jpg' %}" width="100%" height="100%">
+  </div>
+</div>
+
+
+    <script src="{% static 'js/register.js' %}"></script>
+
+    <script>
+      setTimeout(function() {
+        var alerts = document.querySelectorAll('.alert');
+        alerts.forEach(function(alert) {
+          alert.classList.add('fade');
+          setTimeout(function() {
+            alert.style.display = 'none';
+          }, 1000); 
+        });
+      }, 3000); 
+    </script>
+    <!-- Include only Bootstrap JS and its dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  </body>
+</html>

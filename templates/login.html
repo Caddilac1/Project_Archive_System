@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login - Project Archive System</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+
+    <!-- SweetAlert2 CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    <!-- Navbar Start -->
+    <div class="header">
+      <div style="display: flex; margin-left: 20px;">
+        <img src="{% static 'images/badge.png' %}" width="100px">
+        <p class="name">Ghana Communication Technology University (GCTU)</p>
+      </div>
+      <div class="link-list">
+        <a href="{% url 'home' %}" class="nav-link">Home</a>
+        <a href="{% url 'projects' %}" class="nav-link">Projects</a>        
+        <a href="{% url 'add_project' %}" class="nav-link" style="margin-right: 50px;">Add Project</a>    
+        <a href="{% url 'register' %}" class="nav-link"><span class="register">Register</span></a>
+      </div>
+    </div>
+
+    {% if messages %}
+      <div class="container mt-3">
+        {% for message in messages %}
+          {% if message.tags == 'success' %}
+            <!-- SweetAlert for success messages -->
+            <script>
+              Swal.fire({
+                icon: 'success',
+                title: '{{ message }}',
+                showConfirmButton: false,
+                timer: 3000 
+              });
+            </script>
+          {% elif message.tags == 'error' %}
+            <!-- Regular alert for error messages -->
+            <div class="alert alert-danger text-center alert-dismissible fade show" role="alert">
+              <strong>&#x2716;</strong> {{ message }}
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          {% elif message.tags == 'info' %}
+            <!-- Regular alert for info messages -->
+            <div class="alert alert-info text-center alert-dismissible fade show" role="alert">
+              <strong><i class="fas fa-info-circle"></i></strong> {{ message }}
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    <!--  Login Section  -->
+    <div class="login-section">
+      <div class="col1">
+        <img src="{% static 'images/30b001306e662f8c7ef387c2bf2edb77.jpg' %}" width="400px;" height="400px">
+      </div>
+      <div class="col2">
+        <p class="title">Project Achive System</p>
+        <p class="intro">
+          Welcome to the official Project Achive System portal for Ghana Communication Technology University (GCTU)
+        </p>
+
+        <form method="post" action="{% url 'login' %}">
+          {% csrf_token %}
+          <input class="input-fields" name="username" required placeholder="Index Number or Email">
+          <input class="input-fields" name="password" type="password" placeholder="Password">
+          <button class="sign-in-button" type="submit">Sign-in</button>
+        </form>
+
+        <p class="help-req">
+          Forgot your password? <a href="{% url 'reset_password' %}">Reset it here</a>.
+        </p>
+        <p class="help-req">
+          Don't have an account? <a href="{% url 'register' %}">Register</a>.
+        </p>
+
+        <div class="social">
+          <a href="">Facebook</a>
+          <a>l</a>
+          <a href="">LinkedIn</a>
+          <a>l</a>
+          <a href="">Google</a>
+        </div>
+      </div>
+    </div>
+
+
+      <!-- Include only Bootstrap JS and its dependencies -->
+      <!-- Include only Bootstrap JS and its dependencies -->
+<script>
+  setTimeout(function() {
+    var alerts = document.querySelectorAll('.alert');
+    alerts.forEach(function(alert) {
+      alert.classList.add('fade');
+      setTimeout(function() {
+        alert.style.display = 'none';
+      }, 1000); 
+    });
+  }, 3000); 
+</script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  </body>
+
+</html>

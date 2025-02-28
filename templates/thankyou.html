@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You</title>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa; /* Light gray background */
+            margin: 0;
+            padding: 0;
+        }
+
+        .thank-you-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full height of the screen */
+        }
+
+        .thank-you-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .thank-you-card i {
+            color: #28a745; /* Green checkmark color */
+            font-size: 5rem;
+            margin-bottom: 15px;
+        }
+
+        .thank-you-card h3 {
+            color: #28a745; /* Success green */
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .thank-you-card p {
+            color: #555; /* Dark gray text */
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .thank-you-card .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            padding: 10px 20px;
+            font-size: 1rem;
+        }
+
+        .thank-you-card .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <!-- Thank You Section -->
+    <div class="thank-you-container">
+        <div class="thank-you-card">
+            <i class="fas fa-check-circle"></i>
+            <h3>Thank You!</h3>
+            <p>Your feedback/message has been successfully submitted. We truly appreciate your input and time.</p>
+            <a href="{% url 'home' %}" class="btn btn-primary">Go Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>

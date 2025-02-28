@@ -1,0 +1,162 @@
+body {
+  padding-top: 70px;
+  margin: 0;
+  background: rgba(3, 29, 61, 0.3);
+}
+
+
+.header {
+  position: fixed;
+  background-color: #05195E;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  display: flex;
+  font-family: Oswald, sans-serif;
+  justify-content: space-between;
+  z-index: 100;
+}
+
+
+.school-logo {
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-container {
+  display: flex;  
+  align-items: center;
+  margin-right: 20px;
+}
+
+.nav-link {
+  color: #EEC003;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.nav-link:hover {
+  cursor: pointer;
+  color: white;
+  background-color: #031d3d;
+  animation-duration: 0.15s;
+}
+
+
+
+.sec-2 {
+  height: 550px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 10px 10px rgba(9, 9, 119, 0.23);
+}
+
+.decor-back {
+  width: inherit;
+  height: 100%;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(99, 112, 124, 0.336);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.overlay-text {
+  font-size: 60px;
+  font-family: Montserrat;
+  color: white;
+  font-weight: 700;
+  text-align: center;
+}
+
+.overlay-button {
+  font-family: Montserrat;
+  margin-top: 10px;
+  padding: 10px 80px;
+  font-size: 20px;
+  border: solid 1px #012B4C;
+  color: #012B4C;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  background-color: white; 
+}
+
+.overlay-button:hover {
+  animation-duration: 0.15s;
+  background-color: #012B4C;
+  color: #EEC003;
+  border-color: #EEC003;
+}
+
+.sec-3 {
+  background-color: white;
+  height: 400px;
+  width: 1000px;
+  margin: 50px auto 30px;
+  text-align: left;
+  font-family: Montserrat;
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+  box-shadow: 0 10px 10px rgba(9, 9, 119, 0.23); 
+}
+
+.sub1 {
+  flex: 1;
+  background-color: #EEC003;
+}
+
+.sub2 {
+  flex: 50; 
+  padding: 0 50px; 
+}
+
+.title {
+  font-weight: bold;
+  text-align: center;
+  color: #05195E;
+  font-size: 20px; 
+}
+
+.highlight {
+  color: #05195E;
+  font-weight: bold;
+}
+
+.sub3 {
+  flex: 1;
+  background-color: #EEC003;
+}
+
+
+
+.footer {
+  display: flex;
+  background-color: #05195E;
+  width: 100%;
+  height: 30px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0;
+}
+
+.footer div {
+  color: #EEC003;
+  font-family: Oswald;
+  font-size: 10px; 
+  margin: 0 10px;
+}

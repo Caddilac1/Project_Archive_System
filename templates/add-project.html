@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Add Projects</title>
+    <link rel="stylesheet" href="{% static 'css/add-project.css' %}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation Pane -->
+    <div class="header">
+        <div style="display: flex; margin-left: 20px;">
+            <img src="{% static 'images/badge.png' %}" width="100px">
+            <p class="name">Ghana Communication Technology University (GCTU)</p>
+        </div>
+
+        <div class="link-list">
+            <a href="{% url 'home' %}" class="nav-link">Home</a>
+            <a href="{% url 'projects' %}" class="nav-link">Projects</a>
+            <a href="{% url 'add_project' %}" class="nav-link" style="margin-right: 50px;">Add Project</a>
+            <a href="{% url 'logout' %}" class="nav-link"><span class="login">Logout</span></a>
+            <a href="{% url 'register' %}" class="nav-link">Register</a>
+        </div>
+    </div>
+
+    <!-- Form Fields -->
+    <div class="container">
+        <div style="height: 90%; width: 90%;">
+            <p class="title">Add new project</p>
+            <form method="post" action="{% url 'add_project' %}" class="form-group"  enctype="multipart/form-data">
+              {% csrf_token %}
+                <label for="projectTitle">Project Title</label>
+                <input type="text" class="form-control" id="projectTitle" name="title" placeholder="Enter project title" required>
+
+                <label class="form-group" for="projectCategory">Category</label>
+                <select class="form-control" id="projectCategory" name="category" required>
+                    <option value="" disabled selected>- select your project category -</option>
+                    <option value="Web Development">Web Development</option>
+                    <option value="Mobile App Development">Mobile App Development</option>
+                    <option value="Networking and Telecommunications">Networking and Telecommunications</option>
+                    <option value="Data Science and Analytics">Data Science and Analytics</option>
+                    <option value="Cyber Security">Cyber Security</option>
+                    <option value="Artificial Intelligence and Machine Learning">Artificial Intelligence and Machine Learning</option>
+                    <option value="Database Management">Database Management</option>
+                    <option value="Information Systems">Information Systems</option>
+                    <option value="IT Project Management">IT Project Management</option>
+                    <option value="Marketing and E-commerce">Marketing and E-commerce</option>
+                    <option value="Graphics and Multimedia">Graphics and Multimedia</option>
+                    <option value="Business and Management">Business and Management</option>
+                </select>
+
+                <label class="form-group" for="projectTechnologies">Technologies Used</label>
+                <input type="text" class="form-control" id="projectTechnologies" name="tech" placeholder="e.g., HTML, CSS, JavaScript" required>
+
+                <label class="form-group" for="supervisor">Supervisor</label>
+                <select name="supervisor" class="form-control" id="supervisor" required>
+                    <option value="">- Select Supervisor -</option>
+                    {% for supervisor in lecturer %}
+                        <option value="{{ supervisor.id }}">{{ supervisor.full_name }}</option>
+                    {% endfor %}
+                </select>
+
+                <label class="form-group" for="projectStatus">Status</label>
+                <select class="form-control" id="projectStatus" name="status" required>
+                    <option value="" disabled selected>- select project status -</option>
+                    <option value="Completed">Completed</option>
+                    <option value="Ongoing">Ongoing</option>
+                    <option value="On Hold">On Hold</option>
+                </select>
+
+                <label class="form-group" for="projectDescription">Project Description</label>
+                <textarea class="form-control" id="projectDescription" rows="5" name="description" placeholder="Enter project description" required></textarea>
+
+                <!-- Image upload section -->
+                <label class="form-group" for="projectImage">Project Image</label>
+                <small id="imageNote" class="form-text text-muted">
+                    This image will be used to display the project.
+                </small>
+                <input type="file" name="image_file" class="form-control-file" id="projectImage" required>
+
+                <label class="form-group" for="projectFile">Project File</label>
+                <input type="file" name="file" class="form-control-file" id="projectFile" required>
+
+            </div>
+            <button type="submit" class="submit-button">Add Project</button>
+        </form>
+    </div>
+    <script src="{% static 'js/register.js' %}"></script>
+</body>
+
+</html>

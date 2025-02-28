@@ -1,0 +1,512 @@
+body {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+.sidebar {
+  position: fixed;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 15%;
+}
+
+.badge {
+  display: flex;
+  margin: 5px 0 10px 0;
+}
+
+nav ul {
+  margin: 0;
+  list-style: none;
+  padding: 0;
+  font-family: roboto;
+  color: #1E1C4D;
+  font-size: 14px;
+}
+
+nav ul li {
+  margin-bottom: 10px;
+  font-weight: 450;
+  padding: 8px 0 8px 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: inherit;  
+}
+
+nav ul i {
+  margin: 0 10px 0 15px;
+  color: rgb(92, 90, 90);  
+}
+
+nav ul li:hover {
+  background-color: rgb(26, 26, 185);
+}
+
+nav ul li:hover a {
+  color: white;
+  transition-duration: 0.15s;
+}
+
+nav ul li:hover a i {
+  color: white;
+  transition-duration: 0.15s;
+}
+
+.content {
+  width: 85%;
+  margin-left: 15%;
+  height: 100vh;  
+  background-color: rgb(77, 132, 168, 0.11);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  height: 13%;
+  margin-bottom: 10px;
+  font-family: roboto;
+}
+
+.lay1 {
+  flex: 1.25;  
+  border-bottom: 1.5px solid rgba(15, 31, 56, 0.075);
+  display: flex;
+  justify-content: space-between;
+}
+
+.lay1 div {
+  display: flex;
+  align-items: center;
+}
+
+.lay1 > div:first-child {
+  font-family: montserrat;
+  margin-left: 20px;
+  font-size: 17px;
+  font-weight: 500;
+  color: #131336;
+}
+
+.lay1 > div:first-child i {
+  font-size: 25px;
+  margin-right: 5px;
+  color: rgb(26, 26, 185);
+}
+
+.lay1 > div:nth-child(2) {
+  margin-right: 23px;
+}
+
+.search-box {
+  border: solid 1.5px rgb(0, 0, 0, 0.2);
+  border-radius: 15px;
+  margin-right: 10px;
+}
+
+.search-box i {
+  font-size: 12px;
+  margin-left: 10px;
+  color: rgb(0, 0, 0, 0.5);
+}
+
+.search-box input {
+  width: 120px;
+  height: 25px;
+  border: none;
+  margin-left: 5px;
+  border-radius: 0 10px 10px 0;
+  background-color: inherit;
+  outline: none;
+}
+
+.notification-circle {
+  background-color: white;
+  padding: 5px 7px;
+  border-radius: 40px;
+  position: relative;
+}
+
+.notification-circle i {
+  font-size: 12px;
+  color: rgb(0, 0, 0, 0.5);
+}
+
+.notification-circle > div:nth-child(2) {
+  position: absolute;
+  background-color: red;
+  height: 7px;
+  width: 7px;
+  border-radius: 100px;
+  right: 0;
+  top: 0;
+}
+
+.lay2 {
+  flex: 1;
+  border-bottom: 1.5px solid rgba(15, 31, 56, 0.075);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;  
+}
+
+.lay2 > div:first-child {
+  margin-left: 23px;
+  font-weight: 500;
+  font-size: 13px;
+  color: rgb(26, 26, 185);
+}
+
+.lay2 > div:nth-child(2) {
+  margin-right: 23px;
+  display: flex;
+}
+
+.signout {
+  background-color: white;
+  border: solid 1px rgb(0, 0, 0, 0.2);
+  position: relative;
+  padding: 3px 5px;
+  margin-right: 3px;  
+}
+
+.signout i {
+  color: rgb(0, 0, 0, 0.5);
+  font-size: 12px;
+}
+
+.tooltips {
+  position: absolute;
+  font-size: 12px;
+  bottom: -27px;
+  left: -18px;
+  color: white;
+  padding: 2px 7px;
+  background-color: gray;
+  border-radius: 3px;
+  font-family: roboto;
+  opacity: 0;
+}
+
+.signout:hover .tooltips {
+  opacity: 1;
+  transition-duration: 0.15s;
+  pointer-events: none;
+}
+
+.edit-profile {
+  border: solid 1px rgb(0, 0, 0, 0.2);
+  font-size: 13px;
+  color: rgb(0, 0, 0, 0.5);
+  padding: 4px 6px;
+  font-family: roboto;
+}
+
+.edit-profile i {
+  font-size: 12px;
+}
+
+.signout, .edit-profile {
+  border-radius: 3px; 
+  background-color: white;
+}
+
+.box-pane {
+  display: flex;
+  height: 81%;
+  width: 96%;
+  margin-right: auto;
+  margin-left: auto;
+  font-family: roboto;
+}
+
+/* main content box col1*/
+.col1 {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  display: flex;
+}
+
+.user-info {
+  flex: 1;
+  background-color: white;
+  margin-bottom: 12px;
+  border-radius: 5px;
+  display: flex;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.user-info > div:first-child {
+  flex: 1;
+  border-right: 4px solid rgb(77, 132, 168, 0.11);
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-pic-pane {
+  flex: 3.5;
+  text-align: center;
+  line-height: 18px;
+}
+
+.profile-pic {
+  border-radius: 40px;
+  display: block;
+  margin: 15px auto 5px;
+  width: 80px;
+}
+
+.name {
+  font-family: montserrat;
+  font-weight: 600;
+  color: #131336;
+}
+
+.email, .downloads-uploads p {
+  font-size: 10px;
+  color: rgb(0, 0, 0, 0.5);
+}
+
+.downloads-uploads {
+  flex: 2;
+  display: flex;
+  flex-direction: column;  
+  font-weight: 500;
+  color: #131336;
+}
+
+.button_up {
+  border: none;
+  background-color: rgb(26, 26, 185);
+  width: 175px;
+  height: 25px;
+  border-radius: 5px;
+  font-size: 12px;
+  color: white;
+  font-weight: 500;
+}
+
+.user-info > div:nth-child(2) {
+  flex: 2;
+}
+
+/* detailed info box */
+/*grid section*/
+.more-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 25px 20px 10px 20px;
+  column-gap: 15px;
+  row-gap: 15px;
+}
+
+.box {
+  border-bottom: solid 2px rgb(77, 132, 168, 0.05);
+}
+.box > div:first-child {
+  color: rgb(0, 0, 0, 0.35);
+  font-size: 11px;
+  font-weight: 500;  
+  margin-bottom: 5px;
+}
+
+.box > div:nth-child(2) {
+  font-size: 12px;
+  color: #131336;
+  font-weight: 400;
+}
+
+.box i {
+  color: rgb(26, 26, 185);
+}
+
+/* Metrics section*/
+.user-metrics {
+  flex: 1.25;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  padding: 15px;  
+}
+
+.switcher {
+  height: 10%;
+  width: 70%;
+  background-color: rgb(227, 239, 243);
+  display: flex;  
+  justify-content: space-between;
+  padding: 2.5px;
+  border-radius: 5px;
+  gap: 2px;
+  margin-bottom: 15px;
+}
+
+.switcher label {
+  display: flex;
+  color: rgb(0, 0, 0, 0.45);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 12px;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(227, 239, 243);
+  transition: all 0.3s ease;
+  border-radius: 2.5px;
+}
+
+.switcher input {
+  appearance: none;
+  position: absolute;
+}
+
+.switcher input:checked + label {
+  background-color: white;
+  color: rgb(26, 26, 185);
+}
+
+.content-box {
+  background-color: rgb(227, 239, 243);
+  width: 100%;
+  height: 83%;
+  border-radius: 5px;
+}
+
+/* option 3 content styling*/
+
+
+/* end of option 3*/
+
+
+
+.col2 {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin-left: 12px;
+}
+
+/* Bio Section*/
+.bio {
+  background-color: white;
+  flex: 1;
+  margin-bottom: 12px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.bio > div:first-child {
+  flex: 1;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 20px;
+  font-size: 13px;
+  font-weight: 500;
+  margin-top: 10px;
+
+}
+
+.bio > div:nth-child(2) {
+  flex: 4;
+  background-color: rgb(227, 239, 243);
+  margin: 0 3px;
+}
+
+.bio > div:last-child {
+  flex: 1.25;
+  background-color: white;
+  display: flex;
+  margin: 10px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.social {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.social i {
+  font-size: 11px;
+  margin-right: 2px;
+  color: rgb(21, 21, 182);
+}
+
+.social > div:last-child {
+  color: rgba(0, 0, 0, 0.4);
+  font-size: 10px;
+}
+
+.file-downloads {
+  flex: 1;
+  background-color: white;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 20px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.file-downloads > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  font-weight: 500;
+  color: #131336;
+  flex: 1;
+}
+
+.file-downloads > div:first-child i , .explore-more {
+  color: rgb(21, 21, 182);
+}
+
+.file-downloads > div:first-child i {
+  font-size: 15px;
+}
+
+.file-lists {
+  display: flex;
+  flex-direction: column;
+  flex: 5;
+}
+
+.rows {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+  align-items: center;
+  border-bottom: solid 3px rgb(77, 132, 168, 0.05);
+  border-left: solid 2px rgb(77, 132, 168, 0.05);
+  border-right: solid 2px rgb(77, 132, 168, 0.05);;
+  font-size: 12px;
+  color: rgb(0, 0, 0, 0.8);
+}
+
+.rows > div:first-child {
+  margin-left: 10px;
+}
+
+.rows > div:first-child i {
+  margin-right: 5px;
+  font-size: 14px;
+  color:rgb(0, 0, 0, 0.5)
+}
+
+.rows > div:last-child i {
+  color:rgb(0, 0, 0, 0.4);
+  margin-right: 10px;
+}
+

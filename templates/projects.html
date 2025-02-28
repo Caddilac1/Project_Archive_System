@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Project listing</title>
+  <link rel="stylesheet" href="{% static 'css/projects.css' %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+
+<body>
+  <!-- Navbar Start -->
+  <div class="header">
+    <div style="
+    display: flex;
+    align-items: center;
+    margin-left: 20px;">
+      <img src="{% static 'images/badge.png' %}" width="60px" height="60px">
+      <p class="name">Ghana Communication Technology University (GCTU)</p>
+    </div>
+
+    <div class="link-list">
+      <a href="{% url 'home' %}" class="nav-link" >Home</a>
+      <a href="{% url 'projects' %}" class="nav-link">Projects</a>        
+      <a href="{% url 'add_project' %}" class="nav-link" style="margin-right: 50px;">Add Project</a>    
+      <a href="{% url 'login' %}" class="nav-link" >Login</a>    
+      <a href="{% url 'register' %}" class="nav-link"><span class="register">Register</span></a>
+    </div>
+  </div>  
+
+  <div class="main">
+    <div class="title">
+      Projects Overview
+    </div>
+
+    <div class="dropdown-search-container">
+      <!-- first dropdown button  -->
+
+      <div class="dropdown" id="dropdown1">
+        <button class="dropdown-button" id="dropdown-button1">
+          <span>All</span> 
+        </button>
+        <!-- Dropdown options pane -->
+        <div class="dropdown-content" id="dropdown-content1">
+          <div data-value="All">All</div>
+          <div data-value="Fac of Computing and Information Systems">Fac Computing and Information Systems</div>
+          <div data-value="Fac Engineering">Fac Engineering</div>
+          <div data-value="Fac Business Administration">Fac Business Administration</div>
+        </div>
+      </div>
+
+      <!-- Search Field -->
+      <input 
+        type="text" 
+        id="search-field" 
+        class="search-field" 
+        placeholder="Search here..."
+      />
+
+      <!-- Second Dropdown Button -->
+      <div class="dropdown" id="dropdown2">
+        <button class="dropdown-button" id="dropdown-button2">
+          <span>Sort by department name</span>
+        </button>
+        <div class="dropdown-content" id="dropdown-content2">
+          <div data-value="Sort by course name">Sort by course name</div>
+          <div data-value="Sort by date">Sort by date</div>
+          <div data-value="Sort by level">Sort by level</div>
+        </div>
+      </div>
+
+      <!-- Third Dropdown Button -->
+      <div class="dropdown" id="dropdown3">
+        <button class="dropdown-button" id="dropdown-button3">
+          <span>Card</span>
+        </button>
+        <div class="dropdown-content" id="dropdown-content3">
+          <div data-value="Card">Card</div>
+          <div data-value="List">List</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Grid system for card project list -->
+  
+
+    <div class="project-list">
+      {% for pro in projects %}
+      <div class="project-1">
+        <div class="descriptive-img">
+          <img src="{{ pro.image.url }}" class="img">
+        </div>
+      
+        <p class="card-text">{{ pro.description }}</p>
+      
+        <div class="more-info">
+          <a href="{% url 'project_details' pro.id %}">Explore</a>
+        </div>
+      </div>
+      
+        {% endfor %}
+      </div>
+      
+      <!-- other projects go in here-->
+
+    </div>
+  </div>
+
+  <script>
+    // Function to handle dropdowns dynamically
+    function initializeDropdown(dropdownId, buttonId, contentId) {
+      const dropdown = document.getElementById(dropdownId);
+      const dropdownButton = document.getElementById(buttonId);
+      const dropdownContent = document.getElementById(contentId);
+      const dropdownOptions = dropdownContent.querySelectorAll('div');
+      const buttonText = dropdownButton.querySelector('span');
+
+      // Toggle dropdown visibility
+      dropdownButton.addEventListener('click', () => {
+        dropdown.classList.toggle('active');
+      });
+
+      // Update button text on option click
+      dropdownOptions.forEach(option => {
+        option.addEventListener('click', () => {
+          const selectedText = option.getAttribute('data-value');
+          buttonText.textContent = selectedText;
+          dropdown.classList.remove('active'); // Close dropdown
+        });
+      });
+
+      // Close dropdown when clicking outside
+      window.addEventListener('click', (e) => {
+        if (!dropdown.contains(e.target)) {
+          dropdown.classList.remove('active');
+        }
+      });
+    }
+
+    // Initialize all dropdowns
+    initializeDropdown('dropdown1', 'dropdown-button1', 'dropdown-content1');
+    initializeDropdown('dropdown2', 'dropdown-button2', 'dropdown-content2');
+    initializeDropdown('dropdown3', 'dropdown-button3', 'dropdown-content3');
+  </script> 
+</body>
+</html>
