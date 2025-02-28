@@ -1,1 +1,1 @@
-web: gunicorn sad_project.wsgi --log-file -
+web: gunicorn sad_project.wsgi
