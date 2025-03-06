@@ -21,7 +21,7 @@
     <!-- Navbar Start -->
     <div class="header">
       <div style="display: flex; margin-left: 20px;">
-        <img src="{% static 'images/badge.png' %}" width="100px">
+        <img src="{% static 'images/badge.png' %}" width="70px" height="70px">
         <p class="name">Ghana Communication Technology University (GCTU)</p>
       </div>
       <div class="link-list">
@@ -71,13 +71,14 @@
       <div class="col1">
         <img src="{% static 'images/30b001306e662f8c7ef387c2bf2edb77.jpg' %}" width="400px;" height="400px">
       </div>
+      
       <div class="col2">
-        <p class="title">Project Achive System</p>
+        <p class="title">Project Archive System</p>
         <p class="intro">
-          Welcome to the official Project Achive System portal for Ghana Communication Technology University (GCTU)
+          Welcome to the official Project Archive System portal for Ghana Communication Technology University (GCTU)
         </p>
 
-        <form method="post" action="{% url 'login' %}">
+        <form class="form" method="post" action="{% url 'login' %}">
           {% csrf_token %}
           <input class="input-fields" name="username" required placeholder="Index Number or Email">
           <input class="input-fields" name="password" type="password" placeholder="Password">
