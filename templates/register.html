@@ -18,8 +18,8 @@
   <body>
     <!-- Navigation Pane -->
     <div class="header">
-      <div style="display: flex; margin-left: 20px;">
-        <img src="{% static 'images/badge.png' %}" width="100px">
+      <div style="display: flex;  align-items: center;">
+        <img src="{% static 'images/badge.png' %}" width="65px" height="65px">
         <p class="name">Ghana Communication Technology University (GCTU)</p>
       </div>
 
@@ -68,7 +68,7 @@
     <!-- Registration Form -->
 <div class="container">
   <div class="col1">
-    <div style="height: 90%; width: 80%;">
+    <div class="center">
       <p class="title">Start Sign-Up for free</p>
       <p class="info">Create your free account to get started</p>
 
@@ -96,12 +96,12 @@
         <input type="text" class="name-email" name="indexNumber" id="indexNumber" placeholder="Enter index number">
 
         <label for="facultySelect">Faculty</label>
-<select class="form-control" id="facultySelect" name="faculty">
-  <option value="" disabled selected>- Select your faculty -</option>
-  <option value="FoE">Faculty of Engineering (FoE)</option>
-  <option value="FoCIS">Faculty of Computing and Information Systems (FoCIS)</option>
-  <option value="GCTU_Business">GCTU Business School</option>
-</select>
+        <select class="form-control" id="facultySelect" name="faculty">
+        <option value="" disabled selected>- Select your faculty -</option>
+        <option value="FoE">Faculty of Engineering (FoE)</option>
+        <option value="FoCIS">Faculty of Computing and Information Systems (FoCIS)</option>
+        <option value="GCTU_Business">GCTU Business School</option>
+      </select>
 
         <label for="departmentSelect">Department</label>
         <select class="form-control" id="departmentSelect" name="department">
@@ -135,7 +135,7 @@
   </form>
 
   <div class="col2">
-    <img src="{% static 'images/registeration gra..jpg' %}" width="100%" height="100%">
+    <img src="{% static 'images/registeration gra..jpg' %}" width="683px;" height="100%;" style="object-fit:cover;">
   </div>
 </div>
 

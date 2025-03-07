@@ -44,15 +44,16 @@ body {
 
 /* content area */
 .content-area {
+  margin-top: 10px;
   height: 570px;
   width: 1270px;
   margin-left: auto;
   margin-right: auto;
   display: flex;
   flex-direction: column;  
-  border-radius: 30px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 5px 15px rgb(31, 31, 107, 0.3);
+  border-radius: 33px;
+  backdrop-filter: blur(25px);
+  border: solid 4px rgba(0, 0,0, 0.125);
 }
 
 .col1 {
